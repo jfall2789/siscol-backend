@@ -3,7 +3,80 @@
 ## Sistema de Gestión de Incidencias para Instituciones Educativas
 
 SisCol es una aplicación web desarrollada con Spring Boot para gestionar incidencias, requerimientos y usuarios dentro de una institución educativa.
+# 🎓 SisCol
 
+```text
+   _____ _      _____ _____ ____  _     
+  / ____(_)    / ____/ ____/ __ \| |    
+ | (___  _ ___| |   | |   | |  | | |    
+  \___ \| / __| |   | |   | |  | | |    
+  ____) | \__ \ |___| |___| |__| | |____
+ |_____/|_|___/\_____\_____\____/|______|
+
+        Sistema de Gestión de Colegios
+```
+
+> 🚀 Proyecto desarrollado con **Spring Boot 3**, **Java 17**, **PostgreSQL**, **JPA/Hibernate** y **Spring Security**.
+
+---
+
+## 📌 Descripción
+
+SisCol es una plataforma para la administración integral de instituciones educativas.
+
+El proyecto está orientado a una arquitectura limpia, escalable y mantenible, aplicando buenas prácticas de desarrollo Backend con Spring Boot.
+
+---
+
+## 🛠️ Stack Tecnológico
+
+- ☕ Java 17
+- 🌱 Spring Boot 3
+- 🗄 PostgreSQL
+- 📦 Spring Data JPA
+- 🔐 Spring Security
+- 🔑 JWT
+- 🔄 ModelMapper
+- 📋 Lombok
+- 📖 Swagger / OpenAPI (próximamente)
+
+---
+
+## 📂 Arquitectura
+
+```
+Controller
+    │
+    ▼
+Service
+    │
+    ▼
+Repository
+    │
+    ▼
+PostgreSQL
+```
+
+---
+
+## 🚀 Estado del Proyecto
+
+- ✅ BaseEntity
+- ✅ Roles
+- ✅ Permisos
+- ✅ Usuarios
+- 🚧 Autenticación JWT
+- 🚧 Gestión Académica
+- 🚧 Incidencias
+- 🚧 Dashboard
+
+---
+
+## 👨‍💻 Autor
+
+**Juan Francisco Amézquita**
+
+Ingeniero de Sistemas
 ---
 
 ## Objetivo

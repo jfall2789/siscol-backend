@@ -5,7 +5,7 @@ import pe.edu.grupo1.siscol.user.entity.Role;
 
 import java.util.Optional;
 
-public interface RoleRepository extends JpaRepository<Role, Integer> {
+public interface RoleRepository extends JpaRepository<Role, Long> {
 
     Optional<Role> findByName(String name); // optional para evitarnos un nullpointer exception
 

@@ -8,7 +8,28 @@ public class SisColApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SisColApplication.class, args);
-		System.out.println("......Iniciando Siscol exitosamente........");
+		System.out.println("""
+╔══════════════════════════════════════════════════════════════════════╗
+║                                                                      ║
+║   ███████╗██╗███████╗ ██████╗ ██████╗ ██╗                            ║
+║   ██╔════╝██║██╔════╝██╔════╝██╔═══██╗██║                            ║
+║   ███████╗██║███████╗██║     ██║   ██║██║                            ║
+║   ╚════██║██║╚════██║██║     ██║   ██║██║                            ║
+║   ███████║██║███████║╚██████╗╚██████╔╝███████╗                       ║
+║   ╚══════╝╚═╝╚══════╝ ╚═════╝ ╚═════╝ ╚══════╝                       ║
+║                                                                      ║
+║              🎓 SISTEMA DE GESTIÓN DE COLEGIOS 🎓                    ║
+║                                                                      ║
+║               🚀 Aplicación iniciada exitosamente 🚀                 ║
+║                                                                      ║
+╠══════════════════════════════════════════════════════════════════════╣
+║ 👨‍💻 Desarrollador : Juan Francisco Amézquita                          ║
+║ ☕ Framework     : Spring Boot 3                                     ║
+║ 🗄️  Base de Datos: PostgreSQL                                        ║
+║ 🔐 Seguridad     : Spring Security + JWT                            ║
+║ 📦 Proyecto      : SisCol                                            ║
+╚══════════════════════════════════════════════════════════════════════╝
+""");
 
 	}
 
