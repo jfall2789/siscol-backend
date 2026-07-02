@@ -5,9 +5,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import pe.edu.grupo1.siscol.user.dto.request.UserRequest;
 import pe.edu.grupo1.siscol.user.dto.response.UserResponse;
-import pe.edu.grupo1.siscol.user.entity.Role;
+import pe.edu.grupo1.siscol.role.entity.Role;
 import pe.edu.grupo1.siscol.user.entity.User;
-import pe.edu.grupo1.siscol.user.repository.RoleRepository;
+import pe.edu.grupo1.siscol.role.repository.RoleRepository;
 import pe.edu.grupo1.siscol.user.repository.UserRepository;
 import pe.edu.grupo1.siscol.user.service.UserService;
 

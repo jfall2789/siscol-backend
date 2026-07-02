@@ -1,4 +1,4 @@
-package pe.edu.grupo1.siscol.user.entity;
+package pe.edu.grupo1.siscol.role.entity;
 
 
 import jakarta.persistence.Column;
