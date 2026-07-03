@@ -1,7 +1,7 @@
-package pe.edu.grupo1.siscol.user.repository;
+package pe.edu.grupo1.siscol.role.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import pe.edu.grupo1.siscol.user.entity.RolePermission;
+import pe.edu.grupo1.siscol.role.entity.RolePermission;
 
 public interface RolePermissionRepository extends JpaRepository<RolePermission, Integer> {
 

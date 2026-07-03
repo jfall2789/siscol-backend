@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import pe.edu.grupo1.siscol.role.entity.Role;
 import pe.edu.grupo1.siscol.shared.BaseEntity;
 
 @Getter
