@@ -3,11 +3,11 @@ package pe.edu.grupo1.siscol.user.service.impl;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import pe.edu.grupo1.siscol.role.entity.Role;
+import pe.edu.grupo1.siscol.role.repository.RoleRepository;
 import pe.edu.grupo1.siscol.user.dto.request.UserRequest;
 import pe.edu.grupo1.siscol.user.dto.response.UserResponse;
-import pe.edu.grupo1.siscol.role.entity.Role;
 import pe.edu.grupo1.siscol.user.entity.User;
-import pe.edu.grupo1.siscol.role.repository.RoleRepository;
 import pe.edu.grupo1.siscol.user.repository.UserRepository;
 import pe.edu.grupo1.siscol.user.service.UserService;
 
@@ -38,6 +38,13 @@ public class UserServiceImpl implements UserService {
 // new  Si llegas a estar vacío, en ese momento crea esta excepción."
 
         user.setRole(role); // aqui el obj user ya esta completo
+
+        System.out.println("User ID: " + user.getId());
+
+        if (user.getRole() != null) {
+            System.out.println("Role ID: " + user.getRole().getId());
+        }
+
         User savedUser = userRepository.save(user);
         UserResponse userResponse = toResponse(savedUser);
         userResponse.setRoleName(savedUser.getRole().getName());
@@ -49,7 +56,17 @@ public class UserServiceImpl implements UserService {
     //aqui contruimos los mapeadores
 
     private User toEntity(UserRequest userRequest) {
-        return modelMapper.map(userRequest, User.class); //transforma a entidad
+
+        User user = new User();
+
+        user.setFirstName(userRequest.getFirstName());
+        user.setLastName(userRequest.getLastName());
+        user.setEmail(userRequest.getEmail());
+        user.setPassword(userRequest.getPassword());
+        user.setPhoneNumber(userRequest.getPhoneNumber());
+        user.setPosition(userRequest.getPosition());
+
+        return user;
     }
 
     private UserResponse toResponse(User user) {
