@@ -12,7 +12,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class RoleResponse {
 
-    private Integer id;
+    private Long id;
     private String name;
     private String description;
 }
