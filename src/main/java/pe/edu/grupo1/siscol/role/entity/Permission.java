@@ -17,8 +17,12 @@ import pe.edu.grupo1.siscol.shared.BaseEntity;
 public class Permission extends BaseEntity {
 
     @Column(nullable = false, unique = true, length = 100)
+    private String code;
+
+    @Column(nullable = false, length = 100)
     private String name;
 
     @Column(length = 255)
     private String description;
+
 }
