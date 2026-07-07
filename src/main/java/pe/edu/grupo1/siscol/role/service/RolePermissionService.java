@@ -1,5 +1,6 @@
 package pe.edu.grupo1.siscol.role.service;
 
+import pe.edu.grupo1.siscol.role.dto.response.PermissionResponse;
 import pe.edu.grupo1.siscol.role.entity.RolePermission;
 
 import java.util.List;

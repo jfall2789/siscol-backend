@@ -1,4 +1,4 @@
-package pe.edu.grupo1.siscol.role.service.Impl;
+package pe.edu.grupo1.siscol.role.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
