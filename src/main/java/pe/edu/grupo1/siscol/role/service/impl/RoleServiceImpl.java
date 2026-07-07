@@ -1,4 +1,4 @@
-package pe.edu.grupo1.siscol.role.service;
+package pe.edu.grupo1.siscol.role.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -7,6 +7,7 @@ import pe.edu.grupo1.siscol.role.dto.request.RoleRequest;
 import pe.edu.grupo1.siscol.role.dto.response.RoleResponse;
 import pe.edu.grupo1.siscol.role.entity.Role;
 import pe.edu.grupo1.siscol.role.repository.RoleRepository;
+import pe.edu.grupo1.siscol.role.service.RoleService;
 
 import java.util.List;
 import java.util.NoSuchElementException;
