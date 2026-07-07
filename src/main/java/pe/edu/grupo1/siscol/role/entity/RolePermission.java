@@ -24,7 +24,8 @@ import pe.edu.grupo1.siscol.shared.BaseEntity;
 )
 public class RolePermission extends BaseEntity { //No cargues el objeto relacionado inmediatamente; cárgalo solo cuando alguien lo solicite.
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)  // Un mismo rol tiene muchos registros en RolePermission.Pero cada registro de RolePermission pertenece a un solo rol.
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    // Un mismo rol tiene muchos registros en RolePermission.Pero cada registro de RolePermission pertenece a un solo rol.
     @JoinColumn(name = "role_id", nullable = false)
     private Role role;
 
