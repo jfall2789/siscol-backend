@@ -14,6 +14,7 @@ import pe.edu.grupo1.siscol.user.repository.UserRepository;
 import pe.edu.grupo1.siscol.user.service.UserService;
 
 import java.util.List;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Service
 @RequiredArgsConstructor
@@ -24,6 +25,10 @@ public class UserServiceImpl implements UserService {
     private final RoleRepository roleRepository;
 
     private final ModelMapper modelMapper;
+
+    private final PasswordEncoder passwordEncoder;
+
+
 
     @Override
     public UserResponse register(UserRequest userRequest) {
@@ -78,7 +83,9 @@ public class UserServiceImpl implements UserService {
         user.setFirstName(userRequest.getFirstName());
         user.setLastName(userRequest.getLastName());
         user.setEmail(userRequest.getEmail());
-        user.setPassword(userRequest.getPassword());
+        user.setPassword(
+                passwordEncoder.encode(userRequest.getPassword())
+        );
         user.setPhoneNumber(userRequest.getPhoneNumber());
         user.setPosition(userRequest.getPosition());
         user.setRole(role);
@@ -112,7 +119,9 @@ public class UserServiceImpl implements UserService {
         user.setFirstName(userRequest.getFirstName());
         user.setLastName(userRequest.getLastName());
         user.setEmail(userRequest.getEmail());
-        user.setPassword(userRequest.getPassword());
+        user.setPassword(
+                passwordEncoder.encode(userRequest.getPassword())
+        );
         user.setPhoneNumber(userRequest.getPhoneNumber());
         user.setPosition(userRequest.getPosition());
 

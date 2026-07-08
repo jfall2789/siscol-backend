@@ -1,4 +1,4 @@
-package pe.edu.grupo1.siscol.auth.dto;
+package pe.edu.grupo1.siscol.auth.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -2,21 +2,21 @@ package pe.edu.grupo1.siscol.role.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class RoleRequest {
 
-    @NotBlank(message = "El nombre del rol es obligatorio")
-    @Size(max = 50, message = "El nombre no puede superar los 50 caracteres")
+    @NotBlank(message = "El nombre del rol es obligatorio.")
+    @Size(max = 100, message = "El nombre del rol no puede superar los 100 caracteres.")
     private String name;
 
-    @Size(max = 255, message = "La descripción no puede superar los 255 caracteres")
+    @NotBlank(message = "La descripción del rol es obligatoria.")
+    @Size(max = 255, message = "La descripción no puede superar los 255 caracteres.")
     private String description;
+
 }

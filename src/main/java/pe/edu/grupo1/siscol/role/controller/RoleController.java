@@ -9,9 +9,14 @@ import pe.edu.grupo1.siscol.role.dto.response.PermissionResponse;
 import pe.edu.grupo1.siscol.role.dto.response.RoleResponse;
 import pe.edu.grupo1.siscol.role.service.RolePermissionService;
 import pe.edu.grupo1.siscol.role.service.RoleService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 import java.util.List;
 
+@Tag(
+        name = "Roles",
+        description = "Operaciones para la administración de roles del sistema."
+)
 @RestController
 @RequestMapping("/api/roles") //respetamos el standar con doble slash
 @RequiredArgsConstructor

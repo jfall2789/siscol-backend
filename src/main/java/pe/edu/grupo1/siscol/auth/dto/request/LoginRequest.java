@@ -1,4 +1,4 @@
-package pe.edu.grupo1.siscol.auth.dto;
+package pe.edu.grupo1.siscol.auth.dto.request;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

@@ -1,5 +1,6 @@
 package pe.edu.grupo1.siscol.incident.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -10,6 +11,10 @@ import pe.edu.grupo1.siscol.incident.service.IncidentService;
 
 import java.util.List;
 
+@Tag(
+        name = "Incidencias",
+        description = "Operaciones para el registro y seguimiento de incidencias."
+)
 @RestController
 @RequestMapping("/api/incidents")
 @RequiredArgsConstructor
