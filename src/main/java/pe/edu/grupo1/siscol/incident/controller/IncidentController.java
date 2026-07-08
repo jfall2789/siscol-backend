@@ -1,5 +1,7 @@
 package pe.edu.grupo1.siscol.incident.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -9,6 +11,10 @@ import pe.edu.grupo1.siscol.incident.service.IncidentService;
 
 import java.util.List;
 
+@Tag(
+        name = "Incidencias",
+        description = "Operaciones para el registro y seguimiento de incidencias."
+)
 @RestController
 @RequestMapping("/api/incidents")
 @RequiredArgsConstructor
@@ -21,7 +27,7 @@ public class IncidentController {
      */
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public IncidentResponse register(@RequestBody IncidentRequest request) {
+    public IncidentResponse register(@Valid @RequestBody IncidentRequest request) {
         return incidentService.register(request);
     }
 
@@ -34,7 +40,7 @@ public class IncidentController {
     }
 
     /**
-     * Buscar por ID
+     * Buscar incidencia por ID
      */
     @GetMapping("/{id}")
     public IncidentResponse findById(@PathVariable Long id) {
@@ -42,7 +48,7 @@ public class IncidentController {
     }
 
     /**
-     * Buscar por código
+     * Buscar incidencia por código
      */
     @GetMapping("/code/{code}")
     public IncidentResponse findByCode(@PathVariable String code) {
@@ -55,13 +61,14 @@ public class IncidentController {
     @PutMapping("/{id}")
     public IncidentResponse update(
             @PathVariable Long id,
-            @RequestBody IncidentRequest request) {
+            @Valid @RequestBody IncidentRequest request) {
 
         return incidentService.update(id, request);
     }
 
     /**
      * Eliminar incidencia
+     * (En el siguiente sprint será reemplazado por Soft Delete)
      */
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)

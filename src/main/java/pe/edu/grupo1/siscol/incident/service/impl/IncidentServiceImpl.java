@@ -3,6 +3,7 @@ package pe.edu.grupo1.siscol.incident.service.impl;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import pe.edu.grupo1.siscol.exception.incident.IncidentNotFoundException;
 import pe.edu.grupo1.siscol.incident.dto.request.IncidentRequest;
 import pe.edu.grupo1.siscol.incident.dto.response.IncidentResponse;
 import pe.edu.grupo1.siscol.incident.entity.Incident;
@@ -70,7 +71,7 @@ public class IncidentServiceImpl implements IncidentService {
     public IncidentResponse findById(Long id) {
 
         Incident incident = incidentRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Incidencia no encontrada"));
+                .orElseThrow(() -> new IncidentNotFoundException(id));
 
         return modelMapper.map(incident, IncidentResponse.class);
     }
@@ -79,7 +80,7 @@ public class IncidentServiceImpl implements IncidentService {
     public IncidentResponse findByCode(String code) {
 
         Incident incident = incidentRepository.findByCode(code)
-                .orElseThrow(() -> new RuntimeException("Incidencia no encontrada"));
+                .orElseThrow(() -> new IncidentNotFoundException(code));
 
         return modelMapper.map(incident, IncidentResponse.class);
     }
@@ -88,7 +89,7 @@ public class IncidentServiceImpl implements IncidentService {
     public IncidentResponse update(Long id, IncidentRequest request) {
 
         Incident incident = incidentRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Incidencia no encontrada"));
+                .orElseThrow(() -> new IncidentNotFoundException(id));
 
         incident.setTitle(request.getTitle());
         incident.setDescription(request.getDescription());
@@ -110,7 +111,7 @@ public class IncidentServiceImpl implements IncidentService {
     public void delete(Long id) {
 
         Incident incident = incidentRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Incidencia no encontrada"));
+                .orElseThrow(() -> new IncidentNotFoundException(id));
 
         incidentRepository.delete(incident);
     }

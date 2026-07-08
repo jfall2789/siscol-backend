@@ -28,7 +28,7 @@ public class User extends BaseEntity {
     @Column(length = 80)
     private String position;  // director docente secretaria etc
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "role_id", nullable = false)
     private Role role;
     //¿Cuántos usuarios pueden tener el rol Administrador?

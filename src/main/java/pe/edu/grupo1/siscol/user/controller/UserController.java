@@ -8,12 +8,17 @@ import org.springframework.web.bind.annotation.*;
 import pe.edu.grupo1.siscol.user.dto.request.UserRequest;
 import pe.edu.grupo1.siscol.user.dto.response.UserResponse;
 import pe.edu.grupo1.siscol.user.service.UserService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/users")
 @RequiredArgsConstructor
+@Tag(
+        name = "Usuarios",
+        description = "Operaciones para la gestión de usuarios del sistema."
+)
 public class UserController { //aqui expondremos los endpoints de Users
 
     private final UserService userService;
