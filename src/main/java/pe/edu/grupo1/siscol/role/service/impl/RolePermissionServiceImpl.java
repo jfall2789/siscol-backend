@@ -4,6 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pe.edu.grupo1.siscol.exception.permission.PermissionNotFoundException;
+import pe.edu.grupo1.siscol.exception.role.RoleNotFoundException;
 import pe.edu.grupo1.siscol.role.dto.response.PermissionResponse;
 import pe.edu.grupo1.siscol.role.entity.Permission;
 import pe.edu.grupo1.siscol.role.entity.Role;
@@ -27,30 +29,25 @@ public class RolePermissionServiceImpl implements RolePermissionService {
 
     private final ModelMapper modelMapper;
 
-
     @Override
     public void assignPermission(Long roleId, Long permissionId) {
 
         Role role = roleRepository.findById(roleId)
-                .orElseThrow(() -> new RuntimeException("Rol no encontrado"));
+                .orElseThrow(() -> new RoleNotFoundException(roleId));
 
         Permission permission = permissionRepository.findById(permissionId)
-                .orElseThrow(() -> new RuntimeException("Permiso no encontrado"));
+                .orElseThrow(() -> new PermissionNotFoundException(permissionId));
 
         if (rolePermissionRepository.existsByRoleIdAndPermissionId(roleId, permissionId)) {
-
-            throw new RuntimeException("El permiso ya está asignado al rol");
-
+            throw new IllegalArgumentException("El permiso ya está asignado al rol.");
         }
 
         RolePermission rolePermission = new RolePermission();
 
         rolePermission.setRole(role);
-
         rolePermission.setPermission(permission);
 
         rolePermissionRepository.save(rolePermission);
-
     }
 
     @Override
@@ -58,13 +55,10 @@ public class RolePermissionServiceImpl implements RolePermissionService {
     public void removePermission(Long roleId, Long permissionId) {
 
         if (!rolePermissionRepository.existsByRoleIdAndPermissionId(roleId, permissionId)) {
-
-            throw new RuntimeException("El permiso no está asignado al rol");
-
+            throw new IllegalArgumentException("El permiso no está asignado al rol.");
         }
 
         rolePermissionRepository.deleteByRoleIdAndPermissionId(roleId, permissionId);
-
     }
 
     @Override
@@ -75,6 +69,6 @@ public class RolePermissionServiceImpl implements RolePermissionService {
                 .map(RolePermission::getPermission)
                 .map(permission -> modelMapper.map(permission, PermissionResponse.class))
                 .toList();
-
     }
+
 }
